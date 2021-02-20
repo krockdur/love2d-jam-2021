@@ -2,7 +2,8 @@ local Player = require "objects.Player"
 
 
 local player = require("objects.Player")
-
+local map = require("objects.Map")
+local recipe = require("objects.Recipe")
 
 local Game = {}
 
@@ -14,12 +15,28 @@ local wallpaper
 
 
 function Game.load()
+
+    -- test
+
+    recipe.create(1)
+
+    -- test unitaire valisation recette
+    -- recipe.validateReceipe({"chocolate chips", "flour", "egg"})
+    -- recipe.validateReceipe({"chocolate chips", "cacao", "egg"})
+    -- recipe.validateReceipe({"chocolate chips", "flour", "egg", "paté"})
+    -- recipe.validateReceipe({"chocolate chiqsdqsdps", "flour", "qfqe", "qssqqs", "qsfdqzsdq"})
+    -- recipe.validateReceipe({"chocolate chips", "egg"})
+
+    --
     
     love.keyboard.setKeyRepeat(true)
 
     wallpaper = love.graphics.newImage("assets/bg.png")
 
+
+
     player.load()
+    player.setMap(map)
 
 end
 
