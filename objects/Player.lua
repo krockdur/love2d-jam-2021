@@ -12,12 +12,20 @@ local posY = 192-64
 -- ref vers la map
 local map
 
-local CELERITY = 0.15
+local CELERITY = 0.1
 
-local playerSrite
+local direction = "front"
+
+local spritePlayerFront
+local spritePlayerBack
+local spritePlayerLeft
+local spritePlayerRight
 
 function Player.load()
-    playerSrite = love.graphics.newImage("assets/chef.png")
+    spritePlayerFront   = love.graphics.newImage("assets/chef.png")
+    spritePlayerBack    = love.graphics.newImage("assets/chef-back.png")
+    spritePlayerLeft    = love.graphics.newImage("assets/chef-left.png")
+    spritePlayerRight   = love.graphics.newImage("assets/chef-right.png")
 end
 
 
@@ -29,7 +37,16 @@ local txtDebugTileY = love.graphics.newText(font, tostring(Player.tileY))
 --fin debug
 
 function Player.draw()
-    love.graphics.draw(playerSrite, posX, posY)
+    --player direction
+    if direction == "front" then
+        love.graphics.draw(spritePlayerFront, posX, posY)
+    elseif direction == "back" then
+        love.graphics.draw(spritePlayerBack, posX, posY)
+    elseif direction == "left" then
+        love.graphics.draw(spritePlayerLeft, posX, posY)  
+    elseif direction == "right" then
+        love.graphics.draw(spritePlayerRight, posX, posY)         
+    end
 
 
     -- Affichage debug
@@ -41,8 +58,6 @@ function Player.draw()
 end
 
 local timer = 0
-
-
 function Player.update(dt)
 
     -- debug
@@ -57,15 +72,19 @@ function Player.update(dt)
         timer = timer - timer_limit
     
         if love.keyboard.isDown('q') then
+            direction = "left"
             Player.moveLeft(dt)
         end
         if love.keyboard.isDown('d') then
+            direction = "right"
             Player.moveRight(dt)
         end
         if love.keyboard.isDown('z') then
+            direction = "back"
             Player.moveUp(dt)
         end
         if love.keyboard.isDown('s') then
+            direction = "front"
             Player.moveDown(dt)
         end
     end

@@ -17,9 +17,9 @@ local wallpaper
 function Game.load()
 
     -- test
-
+    
+    recipe.load()
     recipe.create(1)
-
     -- test unitaire valisation recette
     -- recipe.validateReceipe({"chocolate chips", "flour", "egg"})
     -- recipe.validateReceipe({"chocolate chips", "cacao", "egg"})
@@ -45,6 +45,7 @@ function Game.draw()
     love.graphics.draw(wallpaper)
 
     player.draw()
+    recipe.draw()
 end
 
 function Game.update(dt)
