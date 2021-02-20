@@ -48,7 +48,7 @@ function love.mousepressed(x, y, button, istouch)
 end
 
 function love.mousereleased(x, y, button, istouch)
-  screenManager.mousepressed(x, y, button, istouch)
+  screenManager.mousereleased(x, y, button, istouch)
 end
 
 function love.keypressed(key)
