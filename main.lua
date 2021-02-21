@@ -59,6 +59,12 @@ function love.keyreleased(key)
   screenManager.keyreleased(key)
 end
 
+function love.mousemoved(x, y, dx, dy, istouch)
+  
+  screenManager.mousemoved(x, y, dx, dy, istouch)
+  
+end
+
 
 -- function love.focus(f) gameIsPaused = not f end
 function love.focus(f)

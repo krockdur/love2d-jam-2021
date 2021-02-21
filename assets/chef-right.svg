@@ -14,7 +14,7 @@
    id="svg1571"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
    sodipodi:docname="chef-right.svg"
-   inkscape:export-filename="/home/krock/Dev/love2D/love2d-jam-2021/assets/chef-right.png"
+   inkscape:export-filename="/home/krock/Dev/love2D/love2d-jam-2021/assets/chef.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -27,8 +27,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="16"
-     inkscape:cx="51.115573"
-     inkscape:cy="34.167221"
+     inkscape:cx="46.576108"
+     inkscape:cy="37.59426"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      inkscape:document-rotation="0"
@@ -41,8 +41,8 @@
      inkscape:pagecheckerboard="true"
      inkscape:window-width="2507"
      inkscape:window-height="1412"
-     inkscape:window-x="1133"
-     inkscape:window-y="366"
+     inkscape:window-x="1973"
+     inkscape:window-y="28"
      inkscape:window-maximized="1"
      objecttolerance="20">
     <sodipodi:guide
@@ -142,7 +142,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -155,48 +155,67 @@
      id="layer4"
      inkscape:label="body">
     <ellipse
-       style="fill:#ececec;stroke:#000000;stroke-width:0.488885;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ececec;stroke:#000000;stroke-width:0.63031;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path2198"
        cx="8.4666672"
        cy="12.964583"
-       rx="2.3124065"
-       ry="3.7243075" />
+       rx="3.9181786"
+       ry="3.653595" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="tete">
     <ellipse
-       style="fill:#ffd5d5;stroke:#000000;stroke-width:0.429242;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffd5d5;stroke:#000000;stroke-width:0.511639;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path2174"
        cx="8.4666662"
        cy="8.1433783"
-       rx="2.0871665"
-       ry="2.6710572" />
+       rx="3.0118349"
+       ry="2.6298585" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.650871;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2204"
+       width="0.97272718"
+       height="0.012243527"
+       x="10.052688"
+       y="9.2761345" />
     <circle
-       style="fill:#000000;stroke:none;stroke-width:0.873772;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path2200"
-       cx="9.3800764"
-       cy="7.4226756"
-       r="0.13229167" />
+       style="opacity:1;fill:#000000;stroke:none;stroke-width:0.873772;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path2200-7"
+       cx="9.3927088"
+       cy="7.5406251"
+       r="0.13229167"
+       inkscape:label="path2200-7" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="hand">
+    <circle
+       style="fill:#ffd5d5;fill-opacity:1;stroke:#000000;stroke-width:0.281888;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="path854"
+       cx="10.605727"
+       cy="12.843473"
+       r="1.1819727" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="toque">
     <rect
-       style="fill:#000000;stroke:none;stroke-width:0.473301;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect2147"
-       width="4.2333326"
+       width="5.2916665"
        height="6.6145835"
-       x="6.3499999"
+       x="5.8208332"
        y="5e-07" />
     <rect
-       style="fill:#f9f9f9;stroke:none;stroke-width:0.387991;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#f9f9f9;stroke:none;stroke-width:0.433787;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect2147-3"
-       width="3.3866665"
+       width="4.2333336"
        height="5.5562501"
-       x="6.7733335"
+       x="6.3499999"
        y="0.5291667" />
   </g>
 </svg>

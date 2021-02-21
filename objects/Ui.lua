@@ -25,6 +25,8 @@ local mark
 
 local recipeSelected = "none"
 
+local soundBook
+
 function UI.load()
   brownie         = love.graphics.newImage("assets/brownie.png")
   cake            = love.graphics.newImage("assets/cake.png")
@@ -44,6 +46,9 @@ function UI.load()
   sugar           = love.graphics.newImage("assets/ingredients/sugar.png")
 
   mark            = love.graphics.newImage("assets/mark.png")
+  
+  
+  soundBook       = love.audio.newSource("assets/sounds/book.ogg", "static")
 end
 
 function UI.update(dt)
@@ -124,21 +129,27 @@ end
 function UI.mousepressed(x, y, button, istouch)
   if (x >= 5*64) and (x <= 6*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "brownie"
+    soundBook:play()
   end
   if (x >= 6*64) and (x <= 7*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "cake"
+    soundBook:play()
   end
   if (x >= 7*64) and (x <= 8*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "chocolateMilk"
+    soundBook:play()
   end
   if (x >= 8*64) and (x <= 9*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "chocolateMouse"
+    soundBook:play()
   end
   if (x >= 9*64) and (x <= 10*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "cookies"
+    soundBook:play()
   end
   if (x >= 10*64) and (x <= 11*64) and (y >=10*64) and (y <= 11*64) then
     recipeSelected = "spread"
+    soundBook:play()
   end
 end
 
