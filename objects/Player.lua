@@ -1,5 +1,8 @@
 local Player = {}
 
+-- Est ce que le joeur transporte de la nourriture
+Player.isLoaded = false
+Player.ingredientLoaded = 0
 
 -- Tile en cours du player
 Player.tileX = 5
@@ -12,7 +15,7 @@ local posY = 192-64
 -- ref vers la map
 local map
 
-local CELERITY = 0.1
+local CELERITY = 0.13
 
 local direction = "front"
 
@@ -21,11 +24,32 @@ local spritePlayerBack
 local spritePlayerLeft
 local spritePlayerRight
 
+local oilTr
+local eggsTr
+local milkTr
+local cocoaTr
+local flourTr
+local sugarTr
+local butterTr
+local hazelnutTr
+local chocolateChipsTr
+
+
 function Player.load()
     spritePlayerFront   = love.graphics.newImage("assets/chef.png")
     spritePlayerBack    = love.graphics.newImage("assets/chef-back.png")
     spritePlayerLeft    = love.graphics.newImage("assets/chef-left.png")
     spritePlayerRight   = love.graphics.newImage("assets/chef-right.png")
+    
+    oilTr               = love.graphics.newImage("assets/ingredients/oil-tr.png")
+    eggsTr              = love.graphics.newImage("assets/ingredients/eggs-tr.png")
+    milkTr              = love.graphics.newImage("assets/ingredients/milk-tr.png")
+    cocoaTr             = love.graphics.newImage("assets/ingredients/cocoa-tr.png")
+    flourTr             = love.graphics.newImage("assets/ingredients/flour-tr.png")
+    sugarTr             = love.graphics.newImage("assets/ingredients/sugar-tr.png")
+    butterTr            = love.graphics.newImage("assets/ingredients/butter-tr.png")
+    hazelnutTr          = love.graphics.newImage("assets/ingredients/hazelnut-tr.png")
+    chocolateChipsTr    = love.graphics.newImage("assets/ingredients/chocolate-chips-tr.png")
 end
 
 
@@ -37,6 +61,7 @@ local txtDebugTileY = love.graphics.newText(font, tostring(Player.tileY))
 --fin debug
 
 function Player.draw()
+  
     --player direction
     if direction == "front" then
         love.graphics.draw(spritePlayerFront, posX, posY)
@@ -46,6 +71,32 @@ function Player.draw()
         love.graphics.draw(spritePlayerLeft, posX, posY)  
     elseif direction == "right" then
         love.graphics.draw(spritePlayerRight, posX, posY)         
+    end
+
+
+    -- affiche ce que le player transporte
+    if Player.isLoaded == true then
+      
+      if Player.ingredientLoaded == 11 then
+        love.graphics.draw(milkTr, posX, posY)
+      elseif Player.ingredientLoaded == 12 then
+        love.graphics.draw(flourTr, posX, posY)
+      elseif Player.ingredientLoaded == 13 then
+        love.graphics.draw(cocoaTr, posX, posY)
+      elseif Player.ingredientLoaded == 14 then
+        love.graphics.draw(chocolateChipsTr, posX, posY)
+      elseif Player.ingredientLoaded == 15 then
+        love.graphics.draw(sugarTr, posX, posY)
+      elseif Player.ingredientLoaded == 16 then
+        love.graphics.draw(butterTr, posX, posY)
+      elseif Player.ingredientLoaded == 17 then
+        love.graphics.draw(oilTr, posX, posY)
+      elseif Player.ingredientLoaded == 18 then
+        love.graphics.draw(hazelnutTr, posX, posY)
+      elseif Player.ingredientLoaded == 19 then
+        love.graphics.draw(eggsTr, posX, posY)
+      end
+    
     end
 
 
@@ -136,7 +187,9 @@ function Player.setMap(Map)
     map = Map
 end
 
-
-
+function Player.transport(numIngredient)
+  Player.isLoaded = true
+  Player.ingredientLoaded = numIngredient
+end
 
 return Player

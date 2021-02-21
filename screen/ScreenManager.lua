@@ -70,9 +70,10 @@ end
 
 
 function ScreenManager.mousepressed(x, y, button, istouch)
+  game.mousepressed(x, y, button, istouch)
 end
 
-function ScreenManager.mousepressed(x, y, button, istouch)
+function ScreenManager.mousereleased(x, y, button, istouch)
 end
 
 function ScreenManager.keypressed(key)

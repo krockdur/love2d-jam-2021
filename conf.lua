@@ -26,6 +26,6 @@ function love.conf(t)
   t.window.height = 768
   t.window.highdpi = false
   t.window.fullscreen = false
-  t.window.title = "chocolate factory"
+  t.window.title = "The Chocolate Factory"
   
 end
