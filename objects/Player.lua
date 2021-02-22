@@ -41,6 +41,9 @@ local right_key
 local up_key
 local down_key
 
+
+---------------------------------------------------
+
 function Player.setKeyboard(lang)
 
   if lang == "azerty" then
@@ -57,6 +60,8 @@ function Player.setKeyboard(lang)
 
 end
 
+---------------------------------------------------
+
 function Player.init()
   Player.tileX = 5
   Player.tileY = 3
@@ -67,6 +72,7 @@ function Player.init()
   Player.ingredientLoaded = 0
 end
 
+---------------------------------------------------
 
 function Player.load()
   spritePlayerFront   = love.graphics.newImage("assets/chef.png")
@@ -87,6 +93,7 @@ function Player.load()
   soundFoot           = love.audio.newSource("assets/sounds/footstep06.ogg", "static")
 end
 
+---------------------------------------------------
 
 --debug
 local font = love.graphics.newFont("assets/SnesItalic-vmAPZ.ttf", 40)
@@ -143,47 +150,94 @@ function Player.draw()
 
 end
 
+---------------------------------------------------
+
 local timer = 0
+local speed = 200
 function Player.update(dt)
 
   -- debug
   -- txtDebugTileX:set(tostring(Player.tileX))
   -- txtDebugTileY:set(tostring(Player.tileY))
   -- fin debug
+  
+      if love.keyboard.isDown(left_key) or love.keyboard.isDown('left') then
+        direction = "left"
+        
+        local valueTileToTest = map.lvlCollision[Player.tileY][Player.tileX - 1]
+        if valueTileToTest ~= 2 and valueTileToTest ~= 3 and valueTileToTest ~= 4 then
+          posX = posX - speed * dt
+        end
 
-  timer = timer + dt
-  local timer_limit = CELERITY
-  if timer >= timer_limit then
+        --soundFoot:play()
+      end
+      
+      if love.keyboard.isDown(right_key) or love.keyboard.isDown('right') then
+        direction = "right"
+        
+        posX = posX + speed * dt
 
-    timer = timer - timer_limit
+        soundFoot:play()
+      end
+      
+      if love.keyboard.isDown(up_key) or love.keyboard.isDown('up') then
+        direction = "back"
+        
+        posY = posY - speed * dt
 
-    if love.keyboard.isDown(left_key) or love.keyboard.isDown('left') then
-      direction = "left"
-      Player.moveLeft(dt)
+        soundFoot:play()
+      end
+      if love.keyboard.isDown(down_key) or love.keyboard.isDown('down') then
+        direction = "front"
+        
+        posY = posY + speed * dt
 
-      soundFoot:play()
+        soundFoot:play()
+      end
+      
+      Player.tileX = math.modf(posX / 64)
+      Player.tileY = math.modf(posY / 64)
+      
+      print("X: "..tostring(Player.tileX))
+      print("Y: "..tostring(Player.tileY))
+      
+  --[[
+    timer = timer + dt
+    local timer_limit = CELERITY
+    if timer >= timer_limit then
+
+      timer = timer - timer_limit
+
+      if love.keyboard.isDown(left_key) or love.keyboard.isDown('left') then
+        direction = "left"
+        Player.moveLeft(dt)
+
+        soundFoot:play()
+      end
+      if love.keyboard.isDown(right_key) or love.keyboard.isDown('right') then
+        direction = "right"
+        Player.moveRight(dt)
+
+        soundFoot:play()
+      end
+      if love.keyboard.isDown(up_key) or love.keyboard.isDown('up') then
+        direction = "back"
+        Player.moveUp(dt)
+
+        soundFoot:play()
+      end
+      if love.keyboard.isDown(down_key) or love.keyboard.isDown('down') then
+        direction = "front"
+        Player.moveDown(dt)
+
+        soundFoot:play()
+      end
     end
-    if love.keyboard.isDown(right_key) or love.keyboard.isDown('right') then
-      direction = "right"
-      Player.moveRight(dt)
-
-      soundFoot:play()
-    end
-    if love.keyboard.isDown(up_key) or love.keyboard.isDown('up') then
-      direction = "back"
-      Player.moveUp(dt)
-
-      soundFoot:play()
-    end
-    if love.keyboard.isDown(down_key) or love.keyboard.isDown('down') then
-      direction = "front"
-      Player.moveDown(dt)
-
-      soundFoot:play()
-    end
-  end
+  ]]--
 
 end
+
+---------------------------------------------------
 
 function Player.moveLeft(dt)
   local nextTileX = Player.tileX - 1
@@ -196,6 +250,8 @@ function Player.moveLeft(dt)
 
 end
 
+---------------------------------------------------
+
 function Player.moveRight(dt)
   local nextTileX = Player.tileX + 1
 
@@ -205,6 +261,8 @@ function Player.moveRight(dt)
     Player.tileX = Player.tileX + 1
   end
 end
+
+---------------------------------------------------
 
 function Player.moveDown(dt)
   local nextTileY = Player.tileY + 1
@@ -216,6 +274,8 @@ function Player.moveDown(dt)
   end
 end
 
+---------------------------------------------------
+
 function Player.moveUp(dt)
   local nextTileY = Player.tileY - 1
 
@@ -226,13 +286,28 @@ function Player.moveUp(dt)
   end
 end
 
+---------------------------------------------------
+
 function Player.setMap(Map)
   map = Map
 end
+
+---------------------------------------------------
 
 function Player.transport(numIngredient)
   Player.isLoaded = true
   Player.ingredientLoaded = numIngredient
 end
 
+---------------------------------------------------
+
 return Player
+
+
+
+
+
+
+
+
+---------------------------------------------------

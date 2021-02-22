@@ -18,7 +18,7 @@ function ScreenManager.load()
 
   musicGame:setVolume(0.5)
   musicGame:setLooping(true)
-  musicGame:play()
+  --musicGame:play()
 
   menu.load()
   game.load()
